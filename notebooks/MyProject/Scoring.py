@@ -9,7 +9,7 @@ registry_uri = f'databricks://modelregistery:modelregistery'
 mlflow.set_registry_uri(registry_uri)
 
 model_name = "power-forecasting-model"
-run_id='c9830cb0281842eb85cbb0dd9c14d896'
+run_id='26ab0b0f47644ab2b8e6f6833f4facd4'
 # The default path where the MLflow autologging function stores the model
 artifact_path = "model"
 model_uri = "runs:/{run_id}/{artifact_path}".format(run_id=run_id, artifact_path=artifact_path)
@@ -47,6 +47,14 @@ def forecast_power(model_name, model_stage):
   power_predictions.index = pd.to_datetime(weather_data.index)
   print(power_predictions)
   plot(model_name, model_stage, int(model_version), power_predictions, past_power_output)
+
+# COMMAND ----------
+
+from mlflow.tracking.client import MlflowClient
+client = MlflowClient()
+model_version = client.get_latest_versions(model_name, stages=[dbutils.widgets.get("Model Stage")])
+
+model_version
 
 # COMMAND ----------
 
