@@ -137,13 +137,13 @@ def train_keras_model(X, y):
 
 # COMMAND ----------
 
-databricks configure --token
-enter host (with worksapce id start with ?O)
-enter token of model dev workspace
-databricks secrets create-scope --scope modelregistery
-databricks secrets put --scope modelregistery --key modelregistery-token --string-value dapic8e0d0d1188ba343ff7d5b7dadbd3d25-3
-databricks secrets put --scope modelregistery --key modelregistery-workspace-id --string-value 527988258732950
-databricks secrets put --scope modelregistery --key modelregistery-host --string-value https://adb-527988258732950.10.azuredatabricks.net/
+# databricks configure --token
+# enter host (with worksapce id start with ?O)
+# enter token of model dev workspace
+# databricks secrets create-scope --scope modelregistery
+# databricks secrets put --scope modelregistery --key modelregistery-token --string-value dapic8e0d0d1188ba343ff7d5b7dadbd3d25-3
+# databricks secrets put --scope modelregistery --key modelregistery-workspace-id --string-value 527988258732950
+# databricks secrets put --scope modelregistery --key modelregistery-host --string-value https://adb-527988258732950.10.azuredatabricks.net/
 
 # COMMAND ----------
 
